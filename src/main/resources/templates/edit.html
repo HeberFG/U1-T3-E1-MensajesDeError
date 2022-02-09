@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+    <title>Actualizar taco</title>
+</head>
+<body>
+    <div class="container">
+        <a class="btn btn-outline-danger mt-4" th:href="@{/list}">Regresar</a>
+        <h1 class="mt-4 mb-4">Actualizar taco</h1>
+        <form th:action="@{/tacos/update/{id}(id=${taco.id})}" th:object="${taco}" method="post">
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input type="text" class="form-control" id="nombre" th:field="*{nombre}">
+            </div>
+            <div class="form-group">
+              <label for="tipo_tortilla">Tipo de tortilla</label>
+              <input type="text" class="form-control" id="tipo_tortilla" th:field="*{tipo_tortilla}">
+            </div>
+            <div class="form-group">
+                <label for="costo">Costo</label>
+                <input type="number" class="form-control" id="costo" th:field="*{costo}">
+            </div>
+            <div class="form-group">
+                <label for="estado">Estado</label>
+                <input type="checkbox" name="estado" th:checked="${taco.estado}" th:field="*{estado}">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </div>
+</body>
+</html>
